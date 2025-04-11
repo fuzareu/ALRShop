@@ -31,21 +31,21 @@ export const AppContextProvider = (props) => {
 
     const fetchUserData = async () => {
         try {
-            
-        if (user.publicMetadata.role === 'seller') {
-            setIsSeller(true)
-        }
 
-        const token = await getToken()
+            if (user.publicMetadata.role === 'seller') {
+                setIsSeller(true)
+            }
 
-        const {data} = await axios.get('/api/user/data', { headers: { Authorization: `Bearer ${token}` } })
+            const token = await getToken()
 
-        if (data.success) {
-            setUserData(data.user)
-            setCartItems(data.user.cartItems)
-        } else {
-            toast.error(data.message)
-        }
+            const {data} = await axios.get('/api/user/data', { headers: { Authorization: `Bearer ${token}` } })
+
+            if (data.success) {
+                setUserData(data.user)
+                setCartItems(data.user.cartItems)
+            } else {
+                toast.error(data.message)
+            }
 
         } catch (error) {
             toast.error(error.message)
