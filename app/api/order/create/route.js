@@ -1,13 +1,15 @@
+import connectDB from "@/config/db";
 import { inngest } from "@/config/inngest";
 import Product from "@/models/product";
 import User from "@/models/user";
+import Order from "@/models/order";
 import { getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-
-
 export async function POST(request) {
     try {
+        await connectDB()
+
         const {userId} = getAuth(request);
 
         const { address, items } = await request.json();
@@ -17,10 +19,22 @@ export async function POST(request) {
         }
 
         // calculate amount using items
-        const amount = await items.reduce(async (acc, item) => {
+        let amount = 0;
+        for (const item of items) {
             const product = await Product.findById(item.product);
-            return await acc + product.offerPrice * item.quantity;
-        },0)
+            if (!product) throw new Error(`Product not found: ${item.product}`);
+            amount += product.offerPrice * item.quantity;
+        }
+
+        // Create order in the database
+        const newOrder = await Order.create({
+            userId,
+            address,
+            items,
+            total: amount + amount * 0.02, // Apply any discount logic
+            status: 'Order Placed',
+            date: Date.now()
+        });
 
         await inngest.send({
             name: 'order/created',
@@ -28,8 +42,8 @@ export async function POST(request) {
                 userId,
                 address,
                 items,
-                amount: amount + Math.floor(amount - 0.02),
-                date: Date.now()
+                total: newOrder.total,
+                date: newOrder.date, 
             }
         })
 

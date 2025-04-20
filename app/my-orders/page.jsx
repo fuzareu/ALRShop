@@ -1,28 +1,46 @@
 'use client';
 import React, { useEffect, useState } from "react";
-import { assets, orderDummyData } from "@/assets/assets";
+import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Loading from "@/components/Loading";
+import axios from "axios";
 
 const MyOrders = () => {
 
-    const { currency } = useAppContext();
+    const { currency, getToken, user } = useAppContext();
 
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const fetchOrders = async () => {
-        setOrders(orderDummyData)
-        setLoading(false);
-    }
+        try {
+            const token = await getToken(); // Get token
+
+            // Send GET request to fetch orders
+            const { data } = await axios.get('/api/order/list', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            if (data.success) {
+                setOrders(data.orders.reverse()); // Reverse the orders for display (optional)
+            } else {
+                toast.error(data.message); // Show error message
+            }
+        } catch (error) {
+            toast.error(error.message); // Show error if the request fails
+        } finally {
+            setLoading(false); // Set loading to false once request completes
+        }
+    };
 
     useEffect(() => {
-        fetchOrders();
-    }, []);
-
+        if (user) {
+            fetchOrders(); // Fetch orders if the user exists
+        }
+    }, [user]);
     return (
         <>
             <Navbar />
@@ -56,7 +74,7 @@ const MyOrders = () => {
                                         <span>{order.address.phoneNumber}</span>
                                     </p>
                                 </div>
-                                <p className="font-medium my-auto">{currency}{order.amount}</p>
+                                <p className="font-medium my-auto">{currency}{order.total}</p>
                                 <div>
                                     <p className="flex flex-col">
                                         <span>Method : COD</span>
