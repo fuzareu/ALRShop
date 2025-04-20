@@ -14,7 +14,7 @@ export async function POST(request) {
 
         const { address, items } = await request.json();
 
-        if (!address || items.length === 0 || !items) {
+        if (!address || items.length === 0) {
             return NextResponse.json({success: false, message: 'Invalid Data'})
         }
 
@@ -31,7 +31,7 @@ export async function POST(request) {
             userId,
             address,
             items,
-            total: amount + Math.floor(amount - 0.02), // Apply any discount logic
+            total: amount + amount * 0.02, // Apply any discount logic
             status: 'Order Placed',
             date: Date.now()
         });

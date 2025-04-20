@@ -73,13 +73,15 @@ export const createUserOrder = inngest.createFunction(
             return {
                 userId: event.data.userId,
                 items: event.data.items,
-                amount: event.data.amount,
+                total: event.data.total,  
                 address: event.data.address,
                 date: event.data.date
             }
         })
 
         await connectDB()
+
+        console.log("Orders to insert:", orders);
         await Order.insertMany(orders)
 
         return { success: true, message: orders.length};
