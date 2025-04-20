@@ -39,8 +39,10 @@ export async function POST(request) {
 
         const result = await Promise.all(
             files.map(async (file) => {
-                const arrayBuffer = await file.arrayBuffer()
-                const buffer = Buffer.from(arrayBuffer)
+                // Ensure that the file is a Blob or File object
+                if (file instanceof Blob || file instanceof File) {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const buffer = Buffer.from(arrayBuffer);
 
                 return new Promise((resolve, reject)=>{
                     const stream = cloudinary.uploader.upload_stream(
@@ -55,6 +57,9 @@ export async function POST(request) {
                     )
                     stream.end(buffer)
                 })
+                } else {
+                    throw new Error('Uploaded file is not a valid Blob or File.')
+                }
             })
         )
 

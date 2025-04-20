@@ -8,9 +8,13 @@ export async function GET(request){
     try {
         
         const { userId } = getAuth(request)
+        console.log("UserId:", userId); 
 
         await connectDB()
+        console.log("Connected to DB");
+
         const user = await User.findById(userId)
+        
 
         if (!user) {
             return NextResponse.json({ success: false, message: "User Not Found" })
@@ -19,6 +23,7 @@ export async function GET(request){
         return NextResponse.json({success:true, user})
 
     } catch (error) {
+        console.log("Fetching user with ID:", userId);
         return NextResponse.json({ success: false, message: error.message })
 
     }
