@@ -33,7 +33,8 @@ export async function POST(request) {
             items,
             total: amount + amount * 0.02, // Apply any discount logic
             status: 'Order Placed',
-            date: Date.now()
+            date: Date.now(),
+            paymentType:'GCASH'
         });
 
         await inngest.send({
@@ -59,5 +60,3 @@ export async function POST(request) {
         return NextResponse.json({ success: false, message: error.message})
     }
 }
-
-// TEST
