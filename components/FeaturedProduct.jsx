@@ -5,20 +5,20 @@ import Image from "next/image";
 const products = [
   {
     id: 1,
-    image: assets.girl_with_headphone_image,
-    title: "",
+    image: assets.cpe_keychain,
+    title: "CpE Keychain",
     description: "Experience crystal-clear audio with premium headphones.",
   },
   {
     id: 2,
-    image: assets.girl_with_earphone_image,
-    title: "Stay Connected",
+    image: assets.cpe_totebag,
+    title: "CpE Totebag",
     description: "Compact and stylish earphones for every occasion.",
   },
   {
     id: 3,
-    image: assets.boy_with_laptop_image,
-    title: "Power in Every Pixel",
+    image: assets.coe_pin,
+    title: "CoE Pin",
     description: "Shop the latest laptops for work, gaming, and more.",
   },
 ];

@@ -46,6 +46,14 @@ import product_details_page_apple_earphone_image2 from "./product_details_page_a
 import product_details_page_apple_earphone_image3 from "./product_details_page_apple_earphone_image3.png";
 import product_details_page_apple_earphone_image4 from "./product_details_page_apple_earphone_image4.png";
 import product_details_page_apple_earphone_image5 from "./product_details_page_apple_earphone_image5.png";
+import cpe_shirt from "./product_images/cpe_shirt.jpg"
+import coe_orgshirt from "./product_images/CoE_orgShirt.jpg"
+import CoE_jacket1 from "./product_images/CoE_jacket1.jpg"
+import cpe_shirt1 from "./product_images/cpe_shirt_1.jpg"
+import cpe_shirt2 from "./product_images/cpe_shirt_2.jpg"
+import coe_pin from "./product_images/CoE_pin.jpg"
+import cpe_totebag from "./product_images/cpessentials_totebag.jpg"
+import cpe_keychain from "./product_images/cpessentials_keychain.jpg"
 
 export const assets = {
   logo,
@@ -95,7 +103,15 @@ export const assets = {
   product_details_page_apple_earphone_image3,
   product_details_page_apple_earphone_image4,
   product_details_page_apple_earphone_image5,
-  checkmark
+  checkmark,
+  coe_orgshirt,
+  CoE_jacket1,
+  cpe_shirt,
+  cpe_shirt1,
+  cpe_shirt2,
+  coe_pin,
+  cpe_totebag,
+  cpe_keychain
 };
 
 export const BagIcon = () => {
