@@ -121,7 +121,7 @@ const OrderSummary = () => {
       <div className="space-y-6">
         <div>
           <label className="text-base font-medium uppercase text-gray-600 block mb-2">
-            Select Address
+            Enter Information
           </label>
           <div className="relative inline-block w-full text-sm border">
             <button
@@ -155,7 +155,7 @@ const OrderSummary = () => {
                   onClick={() => router.push("/add-address")}
                   className="px-4 py-2 hover:bg-gray-500/10 cursor-pointer text-center"
                 >
-                  + Add New Address
+                  + Add New Info
                 </li>
               </ul>
             )}
@@ -186,16 +186,16 @@ const OrderSummary = () => {
             <p className="text-gray-800">{currency}{getCartAmount()}</p>
           </div>
           <div className="flex justify-between">
-            <p className="text-gray-600">Shipping Fee</p>
+            <p className="text-gray-600">PICK-UP</p>
             <p className="font-medium text-gray-800">Free</p>
           </div>
           <div className="flex justify-between">
-            <p className="text-gray-600">Tax (2%)</p>
-            <p className="font-medium text-gray-800">{currency}{Math.floor(getCartAmount() * 0.02)}</p>
+            <p className="text-gray-600">Tax Free (0%)</p>
+            <p className="font-medium text-gray-800">{currency}{Math.floor(getCartAmount() * 0)}</p>
           </div>
           <div className="flex justify-between text-lg md:text-xl font-medium border-t pt-3">
             <p>Total</p>
-            <p>{currency}{getCartAmount() + Math.floor(getCartAmount() * 0.02)}</p>
+            <p>{currency}{getCartAmount() + Math.floor(getCartAmount() * 0)}</p>
           </div>
         </div>
       </div>

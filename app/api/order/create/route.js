@@ -31,7 +31,7 @@ export async function POST(request) {
             userId,
             address,
             items,
-            total: amount + amount * 0.02, // Apply any discount logic
+            total: amount + amount * 0, // Apply any discount logic
             status: 'Order Placed',
             date: Date.now(),
             paymentType:'GCASH'
