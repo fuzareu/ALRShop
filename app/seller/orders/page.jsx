@@ -72,9 +72,9 @@ const Orders = () => {
                             <p className="font-medium my-auto">{currency}{order.total}</p>
                             <div>
                                 <p className="flex flex-col">
-                                    <span>Method : COD</span>
+                                    <span>Method : GCASH</span>
                                     <span>Date : {new Date(order.date).toLocaleDateString()}</span>
-                                    <span>Payment : Pending</span>
+                                    <span>Payment : PAID</span>
                                 </p>
                             </div>
                         </div>
