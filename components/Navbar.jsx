@@ -51,7 +51,7 @@ const Navbar = () => {
                 </UserButton.MenuItems>
               </UserButton>
             </>
-            : <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
+            : <button onClick={openSignIn} className="text-white hover:text-gray-300 transition">
               <Image src={assets.user_icon} alt="user icon" />
               Account
             </button>}
