@@ -2,6 +2,7 @@ import Order from "@/models/order"
 import User from "@/models/user"
 import Stripe from "stripe"
 import connectDB from "@/config/db"
+import { NextResponse } from "next/server"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
