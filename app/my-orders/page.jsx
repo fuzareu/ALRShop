@@ -79,7 +79,7 @@ const MyOrders = () => {
                                     <p className="flex flex-col">
                                         <span>Method : GCASH</span>
                                         <span>Date : {new Date(order.date).toLocaleDateString()}</span>
-                                        <span>Payment : PAID</span>
+                                        <span>Payment : {order.isPaid ? 'Paid' : 'Pending' }</span>
                                     </p>
                                 </div>
                             </div>
