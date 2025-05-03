@@ -15,7 +15,7 @@ export async function GET(request) {
         Address.length
         Product.length
 
-        const orders = await Order.find({ userId })
+        const orders = await Order.find({ userId, $or : [{ paymentType: 'ON-SITE'}, { paymentType: 'GCASH', isPaid: true}] })
             .populate('address')
             .populate('items.product'); // Ensure both 'address' and 'items.product' are populated correctly
 
