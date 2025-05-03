@@ -213,7 +213,7 @@ const OrderSummary = () => {
               On-site Payment
             </button>
             <button onClick={createOrderStripe} className="w-full-flex justify-center items-center border border-indigo-500 bg-white hover:bg-gray-100 py-2 mt-5">
-              <Image className="w-12" src={assets.stripe_logo} alt=""/>
+              <Image className="w-12" src={assets.gcash_logo} alt=""/>
             </button>
           </div>
         )
