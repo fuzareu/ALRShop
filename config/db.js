@@ -17,7 +17,7 @@ async function connectDB() {
             bufferCommands:false
         }
 
-        cached.promise = mongoose.connect(`${process.env.MONGODB_URI}/ALRShop?retryWrites=true&w=majority` ,opts).then( mongoose => {
+        cached.promise = mongoose.connect(`${process.env.MONGODB_URI}/quickcart` ,opts).then( mongoose => {
             return mongoose
         })
     }
