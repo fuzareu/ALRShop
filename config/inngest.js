@@ -4,7 +4,7 @@ import User from "@/models/user";
 import Order from "@/models/order";
 
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "quickcart-next" });
+export const inngest = new Inngest({ id: "ALRShop-next" });
 
 // Inggest Function save user data to MongoDB
 export const syncUserCreation = inngest.createFunction(
