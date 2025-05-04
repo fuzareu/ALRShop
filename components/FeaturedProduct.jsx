@@ -7,19 +7,19 @@ const products = [
     id: 1,
     image: assets.cpe_keychain,
     title: "CpE Keychain",
-    description: "Experience crystal-clear audio with premium headphones.",
+    description: "Crazy Keychain For Crazy CpEeps",
   },
   {
     id: 2,
     image: assets.cpe_totebag,
     title: "CpE Totebag",
-    description: "Compact and stylish earphones for every occasion.",
+    description: "I TOTE siya na ang the one...",
   },
   {
     id: 3,
     image: assets.coe_pin,
     title: "CoE Pin",
-    description: "Shop the latest laptops for work, gaming, and more.",
+    description: "Pin Pin the Sara Pin",
   },
 ];
 
@@ -28,7 +28,7 @@ const FeaturedProduct = () => {
     <div className="mt-14">
       <div className="flex flex-col items-center">
         <p className="text-3xl font-medium">Featured Products</p>
-        <div className="w-28 h-0.5 bg-orange-600 mt-2"></div>
+        <div className="w-28 h-0.5 bg-red-900 mt-2"></div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-14 mt-12 md:px-14 px-4">
@@ -44,7 +44,7 @@ const FeaturedProduct = () => {
               <p className="text-sm lg:text-base leading-5 max-w-60">
                 {description}
               </p>
-              <button className="flex items-center gap-1.5 bg-orange-600 px-4 py-2 rounded">
+              <button className="flex items-center gap-1.5 bg-red-900 px-4 py-2 rounded">
                 Buy now <Image className="h-3 w-3" src={assets.redirect_icon} alt="Redirect Icon" />
               </button>
             </div>
