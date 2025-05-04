@@ -25,7 +25,8 @@ const MyOrders = () => {
             });
 
             if (data.success) {
-                setOrders(data.orders.reverse()); // Reverse the orders for display (optional)
+                setOrders(data.orders.reverse());
+                setLoading(false); // Reverse the orders for display (optional)
             } else {
                 toast.error(data.message); // Show error message
             }
